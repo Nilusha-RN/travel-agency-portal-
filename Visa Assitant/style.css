@@ -1,0 +1,214 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #111; 
+    color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ------------------------------------------navigation Bar------------------------------------------------------*/
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    transition: 0.5s;
+    z-index: 1000;
+}
+
+.navbar.sticky {
+    background-image: url(https://images.pexels.com/photos/7368308/pexels-photo-7368308.jpeg);
+    padding: 10px 15%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-links li a:hover, .active-link {
+    color: aqua;
+}
+
+/* ---------------------------------------VISA SECTION -----------------------------------------------------------*/
+.main-content-wrapper {
+
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/7009468/pexels-photo-7009468.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 100px; 
+    min-height: 100vh;
+}
+
+.visa-section {
+    padding: 50px 8%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: aqua;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 50px;
+}
+
+
+/* ----------------------------------------card for visa section -----------------------------------------------*/
+
+
+
+.visa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(305px, 1fr));
+    gap: 50px;
+    justify-content: center;
+}
+
+.visa-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    background: #000;
+    transition: transform 0.1s ease;
+    cursor: pointer;
+}
+
+
+.visa-card img {
+    width: 400px;
+    height: 400px; 
+    object-fit: cover;
+    display: block;
+}
+
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    padding: 20px;
+    text-align: left;
+}
+
+.card-overlay h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+/*-------------------Footer ------------------------------------------------------------*/
+
+
+.footer {
+    background: #050505;
+    padding-top: 60px;
+    border-top: 1px solid #222;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+
+.footer-widget {
+    margin: 20px;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-widget h6 {
+    color: aqua;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.footer-widget .links li {
+    margin-bottom: 10px;
+}
+
+.footer-widget .links li a {
+    color: #888;
+    font-size: 14px;
+}
+
+.footer-widget .links li a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.copyright-wrapper {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.copyright-wrapper p {
+    font-size: 14px;
+    color: #666;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}

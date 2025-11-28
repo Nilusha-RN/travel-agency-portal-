@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Travel - Flights</title>
+    <link rel="icon" href="/Image/Logos/Hlogo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">LEGO Travel</div>
+        <ul class="nav-links">
+            <li><a href="/Main/main.html">MAIN</a></li>
+            <li><a href="/Tours/Tour.html">TOURS</a></li>
+            <li><a href="/Flights/flight.html" class="active-link" style="color: rgb(18, 240, 240);">FLIGHTS</a></li>
+            <li><a href="/Main/main.html">ABOUT US</a></li>
+            <li><a href="/Main/main.html">CONTACTS</a></li>
+            <li><a href="/Login/Login.html">LOG IN</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-bg">
+        <div class="overlay"></div>
+    </div>
+
+    <div class="main-content">
+        <section class="flight-section">
+            <h2 class="section-title reveal">Our Corporate Airlines</h2>
+            <p class="section-subtitle reveal">Beyond the Horizon: The Next Generation of Travel.</p>
+            
+            <div class="flight-grid">
+                <div class="flight-card flight-1 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Emirates</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-2 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Turkish Airlines</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-3 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Qatar Airways</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-4 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Etihad Airways</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-5 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>SriLankan Airlines</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-6 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Thai Airways</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-7 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Air Asia</h3>
+
+                    </div>
+                </div>
+                <div class="flight-card flight-8 reveal tilt-card">
+                    <div class="card-content">
+                        <h3>Air New Zealand</h3>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-cta reveal">
+                <h3>Ready to take off?</h3>
+                <p>Book your flight with us today and experience the difference.</p>
+                <a href="/Flights/Booking/booking.html" class="cta-btn">Book Your Flight Now <i class="fas fa-plane-departure"></i></a>
+            </div>
+
+        </section>
+    </div>
+
+
+
+    <footer class="footer reveal">
+        <div class="wrapper">
+            <div class="footer-widget logo-widget">
+                <a href="main.html">
+                    <div class="d-flex" style="align-items: center;">
+                        <img class="footer-logo" src="../Image/Logos/withoutback.png" alt="Logo">
+                    </div>
+                </a>
+            </div>
+            <div class="footer-widget">
+                <h6>Quick Find</h6>
+                <ul class="links">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h6>Services</h6>
+                <ul class="links">
+                    <li><a href="#">Airline Ticketing</a></li>
+                    <li><a href="#">Travel Insurance</a></li>
+                    <li><a href="#">Outbound Tours</a></li>
+                    <li><a href="#">Visa Assistance</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h6>Our Branches</h6>
+                <ul class="links">
+                    <li><a href="#">Dubai</a></li>
+                    <li><a href="#">Italy</a></li>
+                    <li><a href="#">Australia</a></li>
+                    <li><a href="#">Sri Lanka</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright-wrapper">
+            <p>Copyright © 2025 | <a href="#" target="_blank">LEGO Travel</a></p>
+        </div>
+    </footer>
+
+    <script>
+        
+        window.addEventListener("scroll", function() {
+            var navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("sticky", window.scrollY > 20);
+        });
+
+   
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                card.style.zIndex = "10";
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                card.style.zIndex = "1";
+            });
+        });
+    </script>
+</body>
+</html>

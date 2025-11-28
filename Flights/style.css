@@ -1,0 +1,294 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    
+    width: 100%;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    transition: 0.5s;
+    z-index: 2000;
+}
+
+.navbar.sticky {
+
+    background-image: url(https://images.pexels.com/photos/7368308/pexels-photo-7368308.jpeg);
+    padding: 10px 8%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-links li a:hover, .active-link {
+    color: aqua;
+}
+
+
+.hero-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg') no-repeat center center/cover;
+    z-index: -2;
+    filter: blur(5px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+.main-content {
+    position: relative;
+    padding-top: 100px; 
+    width: 100%;
+}
+
+/* ----------------------Airline part---------------------------------------------------------------------------- */
+.flight-section {
+    text-align: center;
+    padding: 50px 8%;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: rgb(212, 224, 224);
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(16, 16, 16, 0.2);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #aea8a8;
+    margin-bottom: 50px;
+}
+
+.flight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.flight-card {
+    position: relative;
+    height: 500px; 
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.flight-1 { background-image: url(./Images/emirate.jpg); }
+.flight-2 { background-image: url(./Images/turkish.jpg); }
+.flight-3 { background-image: url(./Images/qatar.webp); }
+.flight-4 { background-image: url(./Images/etihad.jpg); }
+.flight-5 { background-image: url(./Images/ul.png); }
+.flight-6 { background-image: url(./Images/thai.jpg); }
+.flight-7 { background-image: url(./Images/airsia.jpg); }
+.flight-8 { background-image: url(./Images/newzeland.jpg); }
+
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    text-align: left;
+}
+
+.card-content h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    color: rgb(235, 239, 239);
+    font-size: 0.9rem;
+}
+
+
+.booking-cta {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.booking-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.booking-cta p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: aqua;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.cta-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+/* --------------------------Footer part------------------------------ */
+.footer {
+    background: #050505;
+    padding-top: 60px;
+    border-top: 1px solid #222;
+    position: relative;
+    z-index: 10;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+
+.footer-widget {
+    margin: 20px;
+    min-width: 200px;
+}
+
+.footer-logo {
+    width: 200px; 
+}
+
+.footer-widget h6 {
+    color: aqua;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.footer-widget .links li {
+    margin-bottom: 10px;
+}
+
+.footer-widget .links li a {
+    color: #888;
+    font-size: 14px;
+}
+
+.footer-widget .links li a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.copyright-wrapper {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.copyright-wrapper p {
+    font-size: 14px;
+    color: #666;
+}
+
+
+.reveal {
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        background: rgba(0,0,0,0.9);
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tours-grid {
+        grid-template-columns: 1fr;
+    }
+}

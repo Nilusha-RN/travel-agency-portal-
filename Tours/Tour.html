@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Travel - Tours</title>
+    <link rel="icon" href="/Image/Logos/Hlogo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">LEGO Travel</div>
+        <ul class="nav-links">
+            <li><a href="/Main/main.html">MAIN</a></li>
+            <li><a href="/Tours/Tour.html" class="active-link" style="color: aqua;">TOURS</a></li>
+            <li><a href="/Flights/flight.html">FLIGHTS</a></li>
+            <li><a href="/Main/main.html">ABOUT US</a></li>
+            <li><a href="/Login/Login.html">LOG IN</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-bg">
+        <div class="overlay"></div>
+    </div>
+
+    <div class="main-content">
+        <section class="tours-section">
+            
+            <h2 class="section-title reveal" style="color: aliceblue;" >Tour Packages</h2>
+            <p class="section-subtitle reveal">Select a region to explore flights.</p>
+
+            <div class="tours-grid region-grid reveal">
+                <div class="tour-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1473951574080-01fe45ec8643?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Europe">
+                    <div class="card-content">
+                        <h3>Europe</h3>
+                        <p>Explore the History</p>
+                    </div>
+                </div>
+                <div class="tour-card tilt-card">
+                    <img src="https://images.unsplash.com/photo-1535139262971-c51845709a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Asia">
+                    <div class="card-content">
+                        <h3>Asia</h3>
+                        <p>Experience the Culture</p>
+                    </div>
+                </div>
+                <div class="tour-card tilt-card">
+                    <img src="https://images.pexels.com/photos/3243028/pexels-photo-3243028.jpeg" alt="Middle East">
+                    <div class="card-content">
+                        <h3>Middle East</h3>
+                        <p>Luxury & Heritage</p>
+                    </div>
+                </div>
+                <div class="tour-card tilt-card">
+                    <img src="https://images.pexels.com/photos/12319321/pexels-photo-12319321.jpeg" alt="Oceania">
+                    <div class="card-content">
+                        <h3>Oceania</h3>
+                        <p>Nature's Paradise</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <footer class="footer reveal">
+        <div class="wrapper">
+            <div class="footer-widget logo-widget">
+                <a href="main.html">
+                    <div class="d-flex" style="align-items: center;">
+                        <img class="footer-logo" src="../Image/Logos/withoutback.png" alt="Logo">
+                    </div>
+                </a>
+            </div>
+            <div class="footer-widget">
+                <h6>Quick Find</h6>
+                <ul class="links">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="flight.html">Flights</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h6>Services</h6>
+                <ul class="links">
+                    <li><a href="#">Airline Ticketing</a></li>
+                    <li><a href="#">Travel Insurance</a></li>
+                    <li><a href="#">Visa Assistance</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h6>Our Branches</h6>
+                <ul class="links">
+                    <li><a href="#">Dubai</a></li>
+                    <li><a href="#">Italy</a></li>
+                    <li><a href="#">Australia</a></li>
+                    <li><a href="#">Sri Lanka</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright-wrapper">
+            <p>Copyright © 2025 | <a href="#" target="_blank">LEGO Travel</a></p>
+        </div>
+    </footer>
+
+    <script>
+
+
+        window.addEventListener("scroll", function() {
+            var navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("sticky", window.scrollY > 20);
+        });
+
+
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                card.style.zIndex = "10";
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                card.style.zIndex = "1";
+            });
+        });
+    </script>
+</body>
+</html>

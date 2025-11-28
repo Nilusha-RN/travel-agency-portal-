@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Travel - Visa Services</title>
+    <link rel="icon" href="/Image/Logos/Hlogo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo" style="font-family: 'Times New Roman', Times, serif;">LEGO Travel</div>
+        <ul class="nav-links">
+            <li><a href="/Main/main.html">MAIN</a></li>
+            <li><a href="/Tours/Tour.html">TOURS</a></li>
+            <li><a href="/Flights/flight.html">FLIGHTS</a></li>
+            <li><a href="/Main/main.html">ABOUT US</a></li>
+            <li><a href="#">CONTACTS</a></li>
+            <li><a href="/Visa Assitant/visa.html" class="active-link" style="color: aqua;">VISA SERVICES</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content-wrapper">
+        <section class="visa-section">
+            <h2 class="section-title reveal">Our Visa Services</h2>
+            <p class="section-subtitle reveal">Beyond the Horizon: The Next Generation of Travel.</p>
+
+            <div class="visa-grid">
+                <div class="visa-card reveal tilt-card">
+                    <img src="./Images/Dubai.png" alt="Dubai Visa Services">
+                    <div class="card-overlay">
+                        <h3>Dubai Visa</h3>
+                    </div>
+                </div>
+                <div class="visa-card reveal tilt-card">
+                    <img src="./Images/Ausi.png" alt="Australia Visa Services">
+                    <div class="card-overlay">
+                        <h3>Australia Visa</h3>
+                    </div>
+                </div>
+                <div class="visa-card reveal tilt-card">
+                    <img src="./Images/China.png" alt="China Visa Services">
+                    <div class="card-overlay">
+                        <h3>China Visa</h3>
+                    </div>
+                </div>
+                <div class="visa-card reveal tilt-card">
+                    <img src="./Images/India.png" alt="India Visa Services">
+                    <div class="card-overlay">
+                        <h3>India Visa</h3>
+                    </div>
+                </div>
+                <div class="visa-card reveal tilt-card">
+                    <img src="./Images/Turkey.png" alt="Turkey Visa Services">
+                    <div class="card-overlay">
+                        <h3>Turkey Visa</h3>
+                    </div>
+                </div>
+                <div class="visa-card reveal tilt-card">
+                    <img src="./Images/USA.png" alt="USA Visa Services">
+                    <div class="card-overlay">
+                        <h3>USA Visa</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer reveal">
+        <div class="wrapper">
+            <div class="footer-widget">
+                <div class="footer-logo" style="font-family: 'Times New Roman', Times, serif;">LEGO Travel</div>
+                </div>
+
+            <div class="footer-widget">
+                <h6>Quick Find</h6>
+                <ul class="links">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-widget">
+                <h6>Services</h6>
+                <ul class="links">
+                    <li><a href="#">Airline Ticketing</a></li>
+                    <li><a href="#">Travel Insurance</a></li>
+                    <li><a href="#">Outbond Tours</a></li>
+                    <li><a href="#">Visa Assistance</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-widget">
+                <h6>Our Branches</h6>
+                <ul class="links">
+                    <li><a href="#">Dubai</a></li>
+                    <li><a href="#">Italy</a></li>
+                    <li><a href="#">Australia</a></li>
+                    <li><a href="#">Sri Lanka</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright-wrapper">
+            <p>Copyright © 2025 | <a href="#" target="_blank">LEGO Travel</a></p>
+        </div>
+    </footer>
+
+    <script>
+      
+        window.addEventListener("scroll", function() {
+            var navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("sticky", window.scrollY > 20);
+        });
+
+
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -15;
+                const rotateY = ((x - centerX) / centerX) * 15;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+        });
+    </script>
+</body>
+</html> 

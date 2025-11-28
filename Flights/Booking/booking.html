@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Travel - Book a Flight</title>
+    <link rel="icon" href="/Image/Logos/Hlogo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo" style="font-family: 'Times New Roman', Times, serif;">LEGO Travel</div>
+        <ul class="nav-links">
+            <li><a href="/Main/main.html">MAIN</a></li>
+            <li><a href="/Tours/Tour.html">TOURS</a></li>
+            <li><a href="/Flights/flight.html">FLIGHTS</a></li>
+            <li><a href="/Main/main.html">ABOUT US</a></li>
+            <li><a href="Contact.html">CONTACTS</a></li>
+            <li><a href="/Visa Assitant/visa.html" class="active-link" style="color: aqua;">VISA SERVICES</a></li>
+        </ul>
+    </nav>
+    
+
+    <div class="contact-bg">
+        <div class="overlay"></div>
+    </div>
+
+    <div class="main-content">
+        <section class="contact-section">
+            <h2 class="section-title reveal">Book Your Journey</h2>
+            <p class="section-subtitle reveal">Let us take you to your dream destination.</p>
+
+            <div class="form-container reveal">
+                <form id="bookingForm">
+
+                    <h4 class="form-header"><i class="fas fa-user"></i> Personal Details</h4>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Your Name *</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <div class="input-box">
+                            <label>Phone Number *</label>
+                            <input type="tel" placeholder="+94 77 123 4567" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Your Email *</label>
+                            <input type="email" placeholder="example@email.com" required>
+                        </div>
+                        <div class="input-box">
+                            <label>Subject* </label>
+                            <input type="text" placeholder="Flight Inquiry / Booking" required>
+                        </div>
+                    </div>
+
+                    <h4 class="form-header"><i class="fas fa-plane"></i> Flight Details</h4>
+
+                    <div class="trip-type-wrapper">
+                        <label style="color: aliceblue;">Trip Type: *</label>
+                        <div class="radio-group">
+                            <label class="radio-container">One Way
+                                <input type="radio" checked="checked" name="tripType" value="oneway"
+                                    onclick="toggleReturnDate()">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container">Return
+                                <input type="radio" name="tripType" value="return" onclick="toggleReturnDate()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Departure Airport *</label>
+                            <input type="text" placeholder="City or Airport Code (e.g., DXB)" required>
+                        </div>
+                        <div class="input-box">
+                            <label>Arriving Airport *</label>
+                            <input type="text" placeholder="City or Airport Code (e.g., CMB)" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label>Departure Date *</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="input-box" id="returnDateBox" style="display: none; opacity: 0;">
+                            <label>Return Date *</label>
+                            <input type="date" id="returnDateInput">
+                        </div>
+                    </div>
+
+                    <div class="input-box full-width">
+                        <label>Special Requests</label>
+                        <textarea rows="4" placeholder="Meal preferences, Wheelchair assistance, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry <i class="fas fa-paper-plane"></i></button>
+
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+
+    <script>
+
+        window.addEventListener("scroll", function () {
+            var navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("sticky", window.scrollY > 20);
+        });
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        // ---------------if else part ow/rt----------------------//
+
+        function toggleReturnDate() {
+            const returnBox = document.getElementById('returnDateBox');
+            const returnInput = document.getElementById('returnDateInput');
+            const tripType = document.querySelector('input[name="tripType"]:checked').value;
+
+            if (tripType === 'return') {
+                returnBox.style.display = 'block';
+                setTimeout(() => {
+                    returnBox.style.opacity = '1';
+                    returnBox.style.transform = 'translateY(0)';
+                }, 10);
+                returnInput.setAttribute('required', 'required');
+            } else {
+                returnBox.style.opacity = '0';
+                returnBox.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    returnBox.style.display = 'none';
+                }, 300);
+                returnInput.removeAttribute('required');
+            }
+        }
+
+
+        // --------------------Submit Alert--------------------//
+
+
+        document.getElementById('bookingForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Thank you! Your flight inquiry has been sent successfully. We will contact you shortly.");
+            this.reset();
+            toggleReturnDate();
+        });
+    </script>
+
+</body>
+
+</html>
